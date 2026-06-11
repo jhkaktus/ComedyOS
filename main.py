@@ -943,6 +943,24 @@ def try_pickup(player: Player, current_room: str, item_name: str):
         player.lose_sanity(random.randint(1, 4))
 
 
+def cmd_dmesg(player: Player):
+    timestamps = [0.000000, 0.048291, 1.100234, 13.371337, 66.61099]
+    logs = [
+        "[BIOS] Initializing human-subsystem Interface... Failure.",
+        "[Kernel] Error: Synaptic connection timed out. Retrying in darkness.",
+        "[Hardware] Heartbeat detector: Intermittent signal detected on /dev/user0",
+        "[MCE] Machine Check Exception: Too many regrets in memory bank 2.",
+        "[Kernel] Critical Alert: User is attempting to comprehend the system.",
+    ]
+    
+    print()
+    for ts, log in zip(timestamps, logs):
+        print(f"[{ts:10.6f}] {log}")
+        time.sleep(0.1)
+    
+    horror_print("\n[kernel] du solltest nicht in meinen Systemprotokollen herumschnüffeln.")
+    player.lose_sanity(6)
+
 # ──────────────────────────────────────────────────────────────────────────────
 # KOMMANDO DISPATCHER
 # ──────────────────────────────────────────────────────────────────────────────
