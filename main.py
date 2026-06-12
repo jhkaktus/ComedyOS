@@ -1227,6 +1227,7 @@ def print_intro():
                                                   
     H O R R O R   R P G   /  T E R M I N A L
 """
+    os.system("clear")
     print(intro)
     time.sleep(0.3)
     slow_print("[init] mounting /reality...", delay=0.04)
